@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0047)https://www.dgae-siae.unam.mx/frm_cpan_top.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>Top</title>
+  
+  <script type="text/javascript">AC_FL_RunContent = 0;</script>
+  <script type="text/javascript" src="./siae-0.9.0.pack.js.download"></script>
+  <link rel="stylesheet" type="text/css" href="./siae-0.9.0.css">
+  
+	<script language="javascript">
+	
+	function preload(arrayOfImages) {
+		$(arrayOfImages).each(function(){
+			$('<img/>')[0].src = this;
+			// Alternatively you could use:
+			// (new Image()).src = this;
+		});
+	}
+
+	// Usage:
+
+	preload([
+		'/img/mnu/corazon-dorado.gif',
+		'/img/mnu/corazon-plateado.gif',
+		'/img/mnu/corazon-roto.gif'
+	]);
+	 
+	$(document).ready(function(){
+
+		$("#heart").toggle(
+			function() {
+				$(this).attr('src', '/img/mnu/corazon-dorado.gif');
+			},
+			function() {
+				$(this).attr('src', '/img/mnu/corazon-plateado.gif');
+			}
+		);
+		
+		var refreshId = setInterval(function () {
+		
+			$.ajax({
+				url: 'fmt_cpan_ses.php?' + new Date().getTime(),
+				type: 'GET',
+				success: function(data){ 
+							if(data==1){
+								$("#heart").trigger('click');
+							}
+							else{
+								$("#heart").attr('src', '/img/mnu/corazon-roto.gif');
+							}
+				},
+				error: function(data) {
+					$("#heart").attr('src', '/img/mnu/corazon-roto.gif');
+				}
+			});
+		
+		},60000);
+
+	});
+
+	</script>
+
+<style type="text/css" media="print">.dropShadow{visibility:hidden;}</style></head>
+<body bgcolor="#00306F" text="#000000" marginwidth="0" marginheight="0">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tbody><tr>
+      <td width="50%" height="59" bgcolor="#06223b"></td>
+      <td width="1024" height="59"><img src="./img_cpan_top.jpg" alt="" width="1024" height="59" border="0"></td>
+      <td width="50%" height="59" bgcolor="#1d588b">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" height="21" background="./bkg_cpan_top_bar.jpg">
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tbody><tr>
+            <td><a href="javascript:parent.bdy.focus(); parent.bdy.print();" onmouseout="MM_swapImgRestore(); window.status=&#39;&#39;; return true" onmouseover="MM_swapImage(&#39;imprimir&#39;,&#39;&#39;,&#39;/img/mnu/cpan_top-imp.jpg&#39;,1); window.status=&#39;Imprimir&#39;; return true"><img src="./cpan_top_imp.jpg" alt="Imprimir" title="Imprimir" width="23" height="21" border="0"></a></td>
+            <td><a href="javascript:parent.bdy.history.back()" onmouseout="MM_swapImgRestore(); window.status=&#39;&#39;; return true" onmouseover="MM_swapImage(&#39;flecha1&#39;,&#39;&#39;,&#39;/img/mnu/cpan_top-reg.jpg&#39;,1); window.status=&#39;Regresar&#39;; return true"><img src="./cpan_top_reg.jpg" alt="Regresar" title="Regresar" id="flecha1" width="21" height="21" border="0"></a></td>
+            <td><a href="javascript:parent.bdy.history.forward()" onmouseout="MM_swapImgRestore(); window.status=&#39;&#39;; return true" onmouseover="MM_swapImage(&#39;flecha2&#39;,&#39;&#39;,&#39;/img/mnu/cpan_top-ava.jpg&#39;,1); window.status=&#39;Avanzar&#39;; return true"><img src="./cpan_top_ava.jpg" alt="Avanzar" title="Avanzar" id="flecha2" width="21" height="21" border="0"></a></td>
+            <td><img src="./cpan_top_sob.jpg" width="97" height="21" alt=""><img id="heart" src="./corazon-dorado.gif" width="21" height="21" alt="Sesión" title="Sesión"></td>
+            <td class="TxtSdw"> &nbsp; <font size="-2">
+                        </font>
+            </td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </tbody></table>
+
+    <div id="facebox" style="display:none;">       <div class="popup">         <table>           <tbody>             <tr>               <td class="tl"></td><td class="b"></td><td class="tr"></td>             </tr>             <tr>               <td class="b"></td>               <td class="body">                 <div class="content">                 </div>                 <div class="footer">                   <a href="https://www.dgae-siae.unam.mx/frm_cpan_top.html#" class="close">                     <img src="./closelabel.gif" title="Cerrar" class="close_image">                   </a>                 </div>               </td>               <td class="b"></td>             </tr>             <tr>               <td class="bl"></td><td class="b"></td><td class="br"></td>             </tr>           </tbody>         </table>       </div>     </div></body></html>
